@@ -15,5 +15,8 @@
     "astro": "^5.16.16",
     "tailwindcss": "^4.1.18",
     "tinacms": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^25.1.0"
   }
 }

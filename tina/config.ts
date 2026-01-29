@@ -1,61 +1,51 @@
 import { defineConfig } from "tinacms";
 
+// Your hosting provider likely exposes this as an environment variable
+const branch =
+  process.env.GITHUB_BRANCH ||
+  process.env.VERCEL_GIT_COMMIT_REF ||
+  process.env.HEAD ||
+  "main";
+
 export default defineConfig({
-  branch: process.env.TINA_BRANCH || process.env.HEAD || "main",
-  clientId: process.env.TINA_CLIENT_ID || "",
-  token: process.env.TINA_TOKEN || "",
+  branch,
+
+  // Get this from tina.io
+  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
+  // Get this from tina.io
+  token: process.env.TINA_TOKEN,
 
   build: {
     outputFolder: "admin",
     publicFolder: "public",
   },
-
   media: {
     tina: {
-      mediaRoot: "images/uploads",
+      mediaRoot: "",
       publicFolder: "public",
     },
   },
-
+  // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/r/content-modelling-collections/
   schema: {
     collections: [
       {
-        name: "product",
-        label: "Shop Products",
-        path: "src/data/products",
-        format: "json",
+        name: "post",
+        label: "Posts",
+        path: "content/posts",
         fields: [
-          { type: "string", name: "name", label: "Product Name", required: true },
-          { type: "string", name: "slug", label: "URL Slug", required: true },
-          { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
-          { type: "number", name: "price", label: "Price (£)", required: true },
           {
             type: "string",
-            name: "category",
-            label: "Category",
-            options: ["clubs", "balls", "trolleys", "accessories", "clothing"],
+            name: "title",
+            label: "Title",
+            isTitle: true,
+            required: true,
           },
-          { type: "boolean", name: "inStock", label: "In Stock" },
-          { type: "boolean", name: "shippingAvailable", label: "Shipping Available" },
-          { type: "boolean", name: "collectionAvailable", label: "Collection Available" },
-          { type: "image", name: "image", label: "Product Image" },
-        ],
-      },
-      {
-        name: "homepage",
-        label: "Homepage",
-        path: "src/data",
-        format: "json",
-        ui: {
-          allowedActions: { create: false, delete: false },
-        },
-        match: {
-          include: "homepage",
-        },
-        fields: [
-          { type: "string", name: "heroTitle", label: "Hero Title" },
-          { type: "string", name: "heroTagline", label: "Hero Tagline" },
-          { type: "string", name: "heroDescription", label: "Hero Description", ui: { component: "textarea" } },
+          {
+            type: "rich-text",
+            name: "body",
+            label: "Body",
+            isBody: true,
+          },
         ],
       },
     ],
