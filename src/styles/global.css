@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+/* National Nines Brand Colors */
+@theme {
+  --color-brand-red: #c41e3a;
+  --color-brand-black: #1a1a1a;
+  --color-brand-grey: #333333;
+  --color-brand-light: #f8f8f8;
+  
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Open Sans', sans-serif;
+}
+
+/* Base styles */
+body {
+  font-family: var(--font-body);
+  color: var(--color-brand-grey);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-brand-black);
+}
+
+/* Brand utilities */
+.text-brand-red { color: var(--color-brand-red); }
+.text-brand-black { color: var(--color-brand-black); }
+.bg-brand-red { background-color: var(--color-brand-red); }
+.bg-brand-black { background-color: var(--color-brand-black); }
+.font-heading { font-family: var(--font-heading); }
+
+/* Nav link styles */
+.nav-link {
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #333;
+  transition: color 0.3s;
+}
+.nav-link:hover { color: var(--color-brand-red); }
+
+/* Category filter button */
+.category-btn.active {
+  border-color: var(--color-brand-red);
+  background-color: var(--color-brand-red);
+  color: white;
+}
+
+/* Focus ring for brand color */
+.focus\:ring-brand-red:focus {
+  --tw-ring-color: var(--color-brand-red);
+}
+
+.btn-primary {
+  background-color: var(--color-brand-red);
+  color: white;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #a01830;
+}
+
+.btn-secondary {
+  background-color: white;
+  color: var(--color-brand-black);
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 2px solid var(--color-brand-black);
+  transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-brand-black);
+  color: white;
+}
+
+/* Loading spinner */
+.btn-loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.btn-loading::after {
+  content: '';
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: translateY(-50%) rotate(360deg); }
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus states for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-brand-red);
+  outline-offset: 2px;
+}
+
+/* Skip link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: var(--color-brand-red);
+  color: white;
+  padding: 0.5rem 1rem;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}

@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const baseUrl = import.meta.env.BASE_URL || '/';
+---
+
+<BaseLayout title="Our Partners" description="National Nines Golf partners - Supporting Pilgrims Hospices, hosted by London Beach Golf Club.">
+  <section class="py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h1 class="font-heading text-5xl font-bold text-brand-black mb-4">Our Partners</h1>
+        <div class="w-20 h-1 bg-brand-red mx-auto mb-6"></div>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          National Nines Golf is proud to work with these fantastic organisations who make our events possible.
+        </p>
+      </div>
+      
+      <!-- Raising Money For -->
+      <div class="mb-16">
+        <h2 class="font-heading text-3xl font-bold text-brand-black text-center mb-8">
+          Raising Money For
+        </h2>
+        <div class="bg-white rounded-2xl shadow-lg p-8 max-w-2xl mx-auto text-center">
+          <img 
+            src={`${baseUrl}images/sponsors/pilgrims-real.png`}
+            alt="Pilgrims Hospices" 
+            class="h-32 mx-auto mb-6 object-contain"
+          />
+          <h3 class="font-heading text-2xl font-bold text-brand-black mb-4">Pilgrims Hospices</h3>
+          <p class="text-gray-600 mb-4">
+            We're proud to support Pilgrims Hospices, providing compassionate care to people 
+            living with incurable illness in east Kent. A portion of all entry fees and shop 
+            proceeds goes directly to this worthy cause.
+          </p>
+          <a 
+            href="https://www.pilgrimshospices.org" 
+            target="_blank" 
+            rel="noopener"
+            class="inline-block text-brand-red hover:underline font-semibold"
+          >
+            Visit Pilgrims Hospices →
+          </a>
+        </div>
+      </div>
+      
+      <!-- Finals Hosted By -->
+      <div class="mb-16">
+        <h2 class="font-heading text-3xl font-bold text-brand-black text-center mb-8">
+          Finals Hosted By
+        </h2>
+        <div class="bg-white rounded-2xl shadow-lg p-8 max-w-2xl mx-auto text-center">
+          <img 
+            src={`${baseUrl}images/sponsors/london-beach-real.png`} 
+            alt="The London Beach Hotel, Spa & Country Club" 
+            class="h-32 mx-auto mb-6 object-contain"
+          />
+          <h3 class="font-heading text-2xl font-bold text-brand-black mb-4">
+            The London Beach Hotel, Spa & Country Club
+          </h3>
+          <p class="text-gray-600 mb-4">
+            Our finals weekends are hosted at the stunning London Beach Hotel in Tenterden, Kent. 
+            With an excellent 18-hole golf course, luxury spa, and fantastic accommodation, 
+            it's the perfect venue for our championship finals.
+          </p>
+          <a 
+            href="https://www.londonbeach.com" 
+            target="_blank" 
+            rel="noopener"
+            class="inline-block text-brand-red hover:underline font-semibold"
+          >
+            Visit London Beach →
+          </a>
+        </div>
+      </div>
+      
+      <!-- Become a Partner -->
+      <div class="bg-gray-50 rounded-2xl p-8 text-center">
+        <h2 class="font-heading text-3xl font-bold text-brand-black mb-4">
+          Become a Partner
+        </h2>
+        <p class="text-gray-600 mb-6 max-w-xl mx-auto">
+          Interested in partnering with National Nines Golf? We're always looking for 
+          organisations who share our passion for grassroots golf and supporting good causes.
+        </p>
+        <a 
+          href={`${baseUrl}contact`} 
+          class="inline-block bg-brand-red text-white px-8 py-3 rounded-lg font-bold uppercase tracking-wide hover:bg-red-700 transition"
+        >
+          Get in Touch
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .font-heading {
+    font-family: 'Playfair Display', serif;
+  }
+  .text-brand-red {
+    color: #c41e3a;
+  }
+  .text-brand-black {
+    color: #1a1a1a;
+  }
+  .bg-brand-red {
+    background-color: #c41e3a;
+  }
+</style>

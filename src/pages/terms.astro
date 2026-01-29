@@ -1,0 +1,173 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const baseUrl = import.meta.env.BASE_URL || '/';
+---
+
+<BaseLayout title="Terms & Conditions" description="Terms and conditions for National Nines Golf website and competitions.">
+  <section class="py-16">
+    <div class="max-w-3xl mx-auto px-4">
+      <h1 class="font-heading text-4xl font-bold text-brand-black mb-8">Terms & Conditions</h1>
+      
+      <div class="prose prose-gray max-w-none">
+        <p class="text-sm text-gray-500 mb-8">Last updated: January 2026</p>
+        
+        <h2>1. Introduction</h2>
+        <p>
+          These terms and conditions govern your use of the National Nines Golf website and services. 
+          By using our website, entering competitions, or purchasing from our shop, you agree to these terms.
+        </p>
+        
+        <h2>2. Competition Entry Terms</h2>
+        <h3>2.1 Eligibility</h3>
+        <ul>
+          <li>Entrants must be members of a 9-hole golf club in the relevant county/region</li>
+          <li>Entrants must hold a valid WHS handicap index</li>
+          <li>Both players in a pair must meet eligibility requirements</li>
+        </ul>
+        
+        <h3>2.2 Entry Fees</h3>
+        <ul>
+          <li>Entry fees are non-refundable once paid</li>
+          <li>Fees cover administration and prizes as specified for each event</li>
+          <li>Finals weekend accommodation is included for qualifying pairs where stated</li>
+        </ul>
+        
+        <h3>2.3 Competition Rules</h3>
+        <ul>
+          <li>All competitions are played under R&A Rules of Golf</li>
+          <li>Local rules will be provided for each venue</li>
+          <li>Handicaps will be verified through the WHS platform</li>
+          <li>The organiser's decision on any disputes is final</li>
+        </ul>
+        
+        <h3>2.4 Withdrawal & Substitutions</h3>
+        <ul>
+          <li>Pairs may withdraw at any time but fees are non-refundable</li>
+          <li>Player substitutions may be permitted at the organiser's discretion</li>
+          <li>Substitute players must meet eligibility requirements</li>
+        </ul>
+        
+        <h2>3. Shop Terms</h2>
+        <h3>3.1 Products</h3>
+        <ul>
+          <li>All items sold are donated pre-owned equipment unless stated otherwise</li>
+          <li>Items are sold in "as-is" condition as described</li>
+          <li>Photos are representative; actual items may vary slightly</li>
+          <li>All proceeds support National Nines Golf</li>
+        </ul>
+        
+        <h3>3.2 Pricing & Payment</h3>
+        <ul>
+          <li>All prices are in GBP and include VAT where applicable</li>
+          <li>Payment is processed securely via Stripe</li>
+          <li>Orders are confirmed once payment is received</li>
+        </ul>
+        
+        <h3>3.3 Delivery & Collection</h3>
+        <ul>
+          <li>Collection is available from the Kent/Essex area at no charge</li>
+          <li>UK shipping is available for most items; costs calculated at checkout</li>
+          <li>Large items (trolleys, bags) may be collection only</li>
+          <li>Delivery times are estimates and not guaranteed</li>
+        </ul>
+        
+        <h3>3.4 Returns</h3>
+        <ul>
+          <li>Due to the donated nature of items, returns are generally not accepted</li>
+          <li>If an item is significantly not as described, please contact us within 7 days</li>
+          <li>Refunds or exchanges are at our discretion</li>
+        </ul>
+        
+        <h2>4. Website Use</h2>
+        <ul>
+          <li>You may use our website for lawful purposes only</li>
+          <li>You must not attempt to gain unauthorised access to our systems</li>
+          <li>We reserve the right to suspend access for misuse</li>
+        </ul>
+        
+        <h2>5. Intellectual Property</h2>
+        <p>
+          All content on this website, including the National Nines name and logo, is owned by 
+          National Nines Golf Ltd. You may not use our branding without permission.
+        </p>
+        
+        <h2>6. Liability</h2>
+        <ul>
+          <li>We are not liable for any injury during competition play - players participate at their own risk</li>
+          <li>Our liability for shop purchases is limited to the purchase price paid</li>
+          <li>We are not liable for any indirect or consequential losses</li>
+        </ul>
+        
+        <h2>7. Data Protection</h2>
+        <p>
+          Please see our <a href={`${baseUrl}privacy`} class="text-brand-red hover:underline">Privacy Policy</a> for information on how we handle your personal data.
+        </p>
+        
+        <h2>8. Changes to Terms</h2>
+        <p>
+          We may update these terms from time to time. Continued use of our services after changes 
+          constitutes acceptance of the new terms.
+        </p>
+        
+        <h2>9. Governing Law</h2>
+        <p>
+          These terms are governed by the laws of England and Wales. Any disputes will be subject 
+          to the exclusive jurisdiction of the English courts.
+        </p>
+        
+        <h2>10. Contact</h2>
+        <p>
+          For questions about these terms, please contact:<br />
+          Email: <a href="mailto:info@nationalninesgolf.co.uk">info@nationalninesgolf.co.uk</a><br />
+          Phone: 07818 400286
+        </p>
+        
+        <p class="mt-8">
+          <strong>National Nines Golf Ltd</strong><br />
+          Registered in England & Wales
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .font-heading { font-family: 'Playfair Display', serif; }
+  .text-brand-black { color: #1a1a1a; }
+  
+  .prose h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .prose h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .prose p, .prose li {
+    color: #4b5563;
+    line-height: 1.75;
+  }
+  
+  .prose ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+  }
+  
+  .prose li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .prose a {
+    color: #c41e3a;
+    text-decoration: underline;
+  }
+</style>

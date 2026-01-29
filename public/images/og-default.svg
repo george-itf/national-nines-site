@@ -1,0 +1,42 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a"/>
+      <stop offset="100%" style="stop-color:#2d2d2d"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  
+  <!-- Red accent bar -->
+  <rect x="0" y="0" width="8" height="630" fill="#c41e3a"/>
+  
+  <!-- Golf ball pattern (subtle) -->
+  <circle cx="1100" cy="100" r="80" fill="#c41e3a" opacity="0.1"/>
+  <circle cx="1050" cy="530" r="120" fill="#c41e3a" opacity="0.05"/>
+  
+  <!-- Main title -->
+  <text x="80" y="280" font-family="Georgia, serif" font-size="72" font-weight="bold" fill="white">
+    National Nines
+  </text>
+  <text x="80" y="360" font-family="Georgia, serif" font-size="72" font-weight="bold" fill="white">
+    Golf
+  </text>
+  
+  <!-- Tagline -->
+  <text x="80" y="440" font-family="Arial, sans-serif" font-size="28" fill="#c41e3a">
+    Supporting 9-Hole Golf in Kent &amp; Essex
+  </text>
+  
+  <!-- Website -->
+  <text x="80" y="560" font-family="Arial, sans-serif" font-size="24" fill="#888888">
+    nationalninesgolf.co.uk
+  </text>
+  
+  <!-- Golf flag icon -->
+  <g transform="translate(1000, 250)">
+    <line x1="0" y1="0" x2="0" y2="150" stroke="white" stroke-width="3"/>
+    <polygon points="0,0 80,25 0,50" fill="#c41e3a"/>
+  </g>
+</svg>

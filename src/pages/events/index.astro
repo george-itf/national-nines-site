@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const baseUrl = import.meta.env.BASE_URL || '/';
+---
+
+<BaseLayout title="Events" description="National Nines Golf events - Kent Nines and Essex Nines competitions for 9-hole golf clubs. Enter today!">
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h1 class="font-heading text-5xl font-bold text-brand-black mb-4">Events 2026</h1>
+        <div class="w-20 h-1 bg-brand-red mx-auto mb-6"></div>
+        <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+          Join fellow 9-hole golfers in our exciting competitions. Each event offers 
+          a unique format and the chance to compete for great prizes.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <!-- Kent Nines Card -->
+        <a href={`${baseUrl}events/kent-nines`} class="group">
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform group-hover:-translate-y-1">
+            <div class="relative h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800');">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+              <div class="absolute bottom-4 left-6">
+                <h2 class="font-heading text-3xl font-bold text-white">
+                  KENT N<span class="text-brand-red">|</span>NES
+                </h2>
+                <p class="text-white/80">Pairs Betterball Stableford</p>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-4 mb-4">
+                <span class="bg-brand-red/10 text-brand-red px-3 py-1 rounded-full text-sm font-semibold">
+                  Final: Oct 3-4, 2026
+                </span>
+                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">
+                  5 Qualifying Venues
+                </span>
+              </div>
+              <p class="text-gray-600 mb-4">
+                Play a home qualifier at your local club. The winning pair from each venue 
+                advances to the Grand Final at London Beach Golf Club with an overnight stay.
+              </p>
+              <span class="text-brand-red font-semibold group-hover:underline">
+                View Details →
+              </span>
+            </div>
+          </div>
+        </a>
+        
+        <!-- Essex Nines Card -->
+        <a href={`${baseUrl}events/essex-nines`} class="group">
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform group-hover:-translate-y-1">
+            <div class="relative h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=800');">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+              <div class="absolute bottom-4 left-6">
+                <h2 class="font-heading text-3xl font-bold text-white">
+                  ESSEX N<span class="text-brand-red">|</span>NES
+                </h2>
+                <p class="text-white/80">Pairs Matchplay Knockout</p>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-4 mb-4">
+                <span class="bg-brand-red/10 text-brand-red px-3 py-1 rounded-full text-sm font-semibold">
+                  Finals: Oct 3-4, 2026
+                </span>
+                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">
+                  Open for Entries
+                </span>
+              </div>
+              <p class="text-gray-600 mb-4">
+                Open to all 9-hole clubs in Essex. £50 per pair. Knockout matchplay format 
+                with the last 4 pairs competing at London Beach Golf Club.
+              </p>
+              <span class="text-brand-red font-semibold group-hover:underline">
+                Enter Now →
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Coming Soon -->
+  <section class="py-16 bg-brand-black text-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="font-heading text-3xl font-bold mb-4">Coming in 2027</h2>
+      <p class="text-gray-300 text-lg mb-6">
+        National Nines will expand across Great Britain & Ireland, bringing competitive 
+        tournament golf to 9-hole clubs nationwide. Register your interest below.
+      </p>
+      <a href={`${baseUrl}contact`} class="inline-block bg-brand-red text-white px-8 py-3 rounded-lg font-bold uppercase tracking-wide hover:bg-red-700 transition">
+        Register Interest
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .font-heading {
+    font-family: 'Playfair Display', serif;
+  }
+  .text-brand-red {
+    color: #c41e3a;
+  }
+  .text-brand-black {
+    color: #1a1a1a;
+  }
+  .bg-brand-black {
+    background-color: #1a1a1a;
+  }
+  .bg-brand-red {
+    background-color: #c41e3a;
+  }
+</style>

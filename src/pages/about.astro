@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const baseUrl = import.meta.env.BASE_URL || '/';
+---
+
+<BaseLayout title="About" description="Learn about National Nines Golf - bringing competitive tournament golf to 9-hole clubs across Great Britain & Ireland.">
+  <section class="py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h1 class="font-heading text-5xl font-bold text-brand-black mb-4">About National Nines</h1>
+        <div class="w-20 h-1 bg-brand-red mx-auto"></div>
+      </div>
+      
+      <div class="prose prose-lg max-w-none">
+        <p class="text-xl text-gray-600 mb-8 text-center">
+          Bringing competitive tournament golf to 9-hole clubs across Great Britain & Ireland.
+        </p>
+        
+        <div class="bg-gray-50 rounded-2xl p-8 mb-12">
+          <h2 class="font-heading text-2xl font-bold text-brand-black mb-4">Our Mission</h2>
+          <p class="text-gray-600">
+            National Nines Golf was founded with a simple belief: great competitive golf shouldn't 
+            be limited to 18-hole courses. Across the UK and Ireland, thousands of passionate golfers 
+            are members of excellent 9-hole clubs, yet often miss out on the tournament experiences 
+            enjoyed by larger clubs.
+          </p>
+          <p class="text-gray-600 mt-4">
+            We're here to change that. Our competitions bring together golfers from 9-hole clubs 
+            for properly organised, exciting tournament golf with real prizes and unforgettable experiences.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <div class="bg-white rounded-xl shadow-md p-6">
+            <div class="w-12 h-12 bg-brand-red/10 rounded-full flex items-center justify-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-red" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <h3 class="font-heading text-xl font-bold mb-2">Community</h3>
+            <p class="text-gray-600">
+              Building connections between 9-hole clubs and their members, creating a community 
+              of like-minded golfers who love the game.
+            </p>
+          </div>
+          
+          <div class="bg-white rounded-xl shadow-md p-6">
+            <div class="w-12 h-12 bg-brand-red/10 rounded-full flex items-center justify-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-red" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+              </svg>
+            </div>
+            <h3 class="font-heading text-xl font-bold mb-2">Competition</h3>
+            <p class="text-gray-600">
+              Professional, well-organised tournaments that give every golfer the chance 
+              to test themselves in competitive play.
+            </p>
+          </div>
+          
+          <div class="bg-white rounded-xl shadow-md p-6">
+            <div class="w-12 h-12 bg-brand-red/10 rounded-full flex items-center justify-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-red" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+              </svg>
+            </div>
+            <h3 class="font-heading text-xl font-bold mb-2">Experience</h3>
+            <p class="text-gray-600">
+              Memorable tournament experiences including overnight stays, dinners, 
+              and the chance to play fantastic courses.
+            </p>
+          </div>
+          
+          <div class="bg-white rounded-xl shadow-md p-6">
+            <div class="w-12 h-12 bg-brand-red/10 rounded-full flex items-center justify-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-red" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+            <h3 class="font-heading text-xl font-bold mb-2">Giving Back</h3>
+            <p class="text-gray-600">
+              All proceeds from our shop support grassroots golf and help us expand 
+              National Nines to more regions.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Charity Section -->
+        <div class="bg-brand-red text-white rounded-2xl p-8 mb-12">
+          <div class="flex flex-col md:flex-row items-center gap-8">
+            <div class="flex-1">
+              <h2 class="font-heading text-2xl font-bold mb-4">Supporting Pilgrims Hospices</h2>
+              <p class="opacity-90 mb-4">
+                We're proud to support Pilgrims Hospices, providing compassionate care for people 
+                living with life-limiting illness across east Kent. A portion of every entry fee 
+                and shop sale goes directly to this wonderful charity.
+              </p>
+              <a href="https://www.pilgrimshospices.org" target="_blank" rel="noopener" class="inline-block bg-white text-brand-red px-6 py-2 rounded-lg font-semibold hover:bg-gray-100 transition">
+                Learn More About Pilgrims →
+              </a>
+            </div>
+            <div class="flex-shrink-0">
+              <img src={`${baseUrl}images/sponsors/pilgrims-real.png`} alt="Pilgrims Hospices" class="h-24 bg-white rounded-lg p-3" />
+            </div>
+          </div>
+        </div>
+        
+        <!-- Get Involved -->
+        <div class="text-center mb-12">
+          <h2 class="font-heading text-2xl font-bold text-brand-black mb-4">Get Your Club Involved</h2>
+          <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
+            Is your 9-hole club interested in joining National Nines? We're always looking to 
+            expand our network across the UK and Ireland. Get in touch to learn how your club can participate.
+          </p>
+          <a href={`${baseUrl}contact`} class="inline-block bg-brand-red text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition">
+            Contact Us
+          </a>
+        </div>
+        
+        <div class="text-center border-t pt-8">
+          <h2 class="font-heading text-2xl font-bold text-brand-black mb-4">National Nines Golf Ltd</h2>
+          <p class="text-gray-600">
+            Registered in England & Wales
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .font-heading {
+    font-family: 'Playfair Display', serif;
+  }
+  .text-brand-red {
+    color: #c41e3a;
+  }
+  .text-brand-black {
+    color: #1a1a1a;
+  }
+  .bg-brand-red {
+    background-color: #c41e3a;
+  }
+</style>

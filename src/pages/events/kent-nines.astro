@@ -1,0 +1,410 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const entered = Astro.url.searchParams.get('entered');
+const baseUrl = import.meta.env.BASE_URL || '/';
+const siteUrl = import.meta.env.SITE || 'https://nationalninesgolf.co.uk';
+
+// Event structured data for SEO
+const eventSchema = {
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Kent Nines 2026",
+  "description": "Pairs Betterball Stableford competition for 9-hole golf clubs in Kent. Finals weekend at London Beach Golf Club.",
+  "startDate": "2026-10-03",
+  "endDate": "2026-10-04",
+  "location": {
+    "@type": "Place",
+    "name": "London Beach Golf Club",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tenterden",
+      "addressRegion": "Kent",
+      "addressCountry": "GB"
+    }
+  },
+  "organizer": {
+    "@type": "SportsOrganization",
+    "name": "National Nines Golf",
+    "url": siteUrl
+  },
+  "sport": "Golf",
+  "offers": {
+    "@type": "Offer",
+    "price": "150",
+    "priceCurrency": "GBP",
+    "availability": "https://schema.org/InStock"
+  }
+};
+---
+
+<BaseLayout title="Kent Nines" description="Kent Nines - Pairs Betterball Stableford competition for 9-hole golf clubs in Kent. Finals at London Beach Golf Club with overnight stay.">
+  <script type="application/ld+json" set:html={JSON.stringify(eventSchema)}></script>
+  {entered && (
+    <div class="bg-green-100 border-b border-green-200 py-4">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <p class="text-green-800 font-semibold">✓ Entry received! We'll be in touch with payment details shortly.</p>
+      </div>
+    </div>
+  )}
+  <!-- Hero -->
+  <section class="relative py-24 text-white overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1592919505780-303950717480?w=1920');">
+      <div class="absolute inset-0 bg-gradient-to-r from-brand-black/95 via-brand-black/80 to-brand-black/60"></div>
+    </div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4">
+      <div class="inline-block bg-brand-red text-white text-sm font-bold uppercase tracking-wider px-4 py-2 rounded mb-6">
+        Kent Competition
+      </div>
+      <h1 class="font-heading text-5xl md:text-7xl font-black mb-4 drop-shadow-lg">
+        KENT N<span class="text-brand-red">|</span>NES
+      </h1>
+      <p class="text-2xl md:text-3xl font-bold mb-3">Pairs Betterball Stableford</p>
+      <p class="text-xl bg-white/10 backdrop-blur inline-block px-4 py-2 rounded-lg font-semibold">
+        🏆 Finals: October 3-4, 2026 at London Beach Golf Club
+      </p>
+    </div>
+  </section>
+
+  <!-- Event Details -->
+  <section class="py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- Left: Description -->
+        <div>
+          <h2 class="font-heading text-3xl font-bold text-brand-black mb-6">How It Works</h2>
+          
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <div class="w-10 h-10 bg-brand-red text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">1</div>
+              <div>
+                <h3 class="font-semibold text-lg mb-1">Club Qualifiers</h3>
+                <p class="text-gray-600">Each pair plays a Betterball Stableford round at their home club during the qualifying period (May-August 2026).</p>
+              </div>
+            </div>
+            
+            <div class="flex gap-4">
+              <div class="w-10 h-10 bg-brand-red text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
+              <div>
+                <h3 class="font-semibold text-lg mb-1">Submit Your Score</h3>
+                <p class="text-gray-600">The winning pair from each club submits their verified scorecard to enter the finals.</p>
+              </div>
+            </div>
+            
+            <div class="flex gap-4">
+              <div class="w-10 h-10 bg-brand-red text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">3</div>
+              <div>
+                <h3 class="font-semibold text-lg mb-1">Finals Weekend</h3>
+                <p class="text-gray-600">Qualifying pairs compete at London Beach Golf Club for the Kent Nines trophy, with overnight stay included.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right: Key Info -->
+        <div>
+          <div class="bg-gray-50 rounded-xl p-6 mb-6">
+            <h3 class="font-heading text-xl font-bold mb-4">What's Included</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-2">
+                <span class="text-brand-red">✓</span>
+                <span>Entry to Kent Nines Finals</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-red">✓</span>
+                <span>18 holes at London Beach Golf Club</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-red">✓</span>
+                <span>Overnight accommodation (Sat night)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-red">✓</span>
+                <span>Saturday evening dinner</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-red">✓</span>
+                <span>Sunday breakfast</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-red">✓</span>
+                <span>Prizes for top 3 pairs</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="bg-brand-red text-white rounded-xl p-6">
+            <div class="text-center">
+              <p class="text-sm uppercase tracking-wide opacity-80">Entry Fee</p>
+              <p class="text-4xl font-bold mb-2">£150</p>
+              <p class="text-sm opacity-80">per pair</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Dates -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="font-heading text-3xl font-bold text-brand-black text-center mb-10">Key Dates</h2>
+      
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm">
+          <p class="text-brand-red font-bold text-lg">1 May</p>
+          <p class="text-gray-600">Qualifying Opens</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm">
+          <p class="text-brand-red font-bold text-lg">31 Aug</p>
+          <p class="text-gray-600">Qualifying Closes</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm">
+          <p class="text-brand-red font-bold text-lg">15 Sep</p>
+          <p class="text-gray-600">Finals Entries Due</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm">
+          <p class="text-brand-red font-bold text-lg">3-4 Oct</p>
+          <p class="text-gray-600">Finals Weekend</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Entry Form -->
+  <section class="py-16" id="enter">
+    <div class="max-w-2xl mx-auto px-4">
+      <div class="text-center mb-10">
+        <h2 class="font-heading text-3xl font-bold text-brand-black mb-4">Enter Kent Nines</h2>
+        <p class="text-gray-600 mb-4">Register your pair for the 2026 Kent Nines competition.</p>
+        <div id="entry-count" class="inline-block bg-brand-red/10 text-brand-red px-4 py-2 rounded-full text-sm font-semibold hidden">
+          <span id="count-number">0</span> pairs entered
+        </div>
+      </div>
+      
+      <form id="entry-form" class="bg-white rounded-xl shadow-lg p-8" action="https://formsubmit.co/info@nationalninesgolf.co.uk" method="POST">
+            <input type="hidden" name="_subject" value="Kent Nines Entry - New Registration">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value={`${siteUrl}${baseUrl}events/kent-nines/?entered=true`}>
+            <input type="hidden" name="event" value="Kent Nines 2026">
+        <div class="space-y-6">
+          <!-- Club Info -->
+          <div>
+            <label class="block text-sm font-semibold mb-2">9-Hole Club Name *</label>
+            <input type="text" name="club_name" required class="w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-red focus:border-transparent" placeholder="e.g., Whitstable & Seasalter Golf Club" />
+          </div>
+          
+          <hr class="my-6" />
+          
+          <!-- Player 1 -->
+          <h3 class="font-semibold text-lg">Player 1</h3>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-semibold mb-2">Full Name *</label>
+              <input type="text" name="player1_name" required class="w-full border rounded-lg px-4 py-3" />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold mb-2">Handicap Index *</label>
+              <input type="number" name="player1_handicap" step="0.1" min="0" max="54" required class="w-full border rounded-lg px-4 py-3" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-2">Email *</label>
+            <input type="email" name="player1_email" required class="w-full border rounded-lg px-4 py-3" />
+          </div>
+          
+          <hr class="my-6" />
+          
+          <!-- Player 2 -->
+          <h3 class="font-semibold text-lg">Player 2</h3>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-semibold mb-2">Full Name *</label>
+              <input type="text" name="player2_name" required class="w-full border rounded-lg px-4 py-3" />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold mb-2">Handicap Index *</label>
+              <input type="number" name="player2_handicap" step="0.1" min="0" max="54" required class="w-full border rounded-lg px-4 py-3" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-2">Email *</label>
+            <input type="email" name="player2_email" required class="w-full border rounded-lg px-4 py-3" />
+          </div>
+          
+          <hr class="my-6" />
+          
+          <!-- Contact -->
+          <div>
+            <label class="block text-sm font-semibold mb-2">Contact Phone *</label>
+            <input type="tel" name="phone" required pattern="[0-9\s+()-]{10,}" title="Please enter a valid UK phone number" class="w-full border rounded-lg px-4 py-3" placeholder="07xxx xxxxxx" />
+          </div>
+          
+          <div class="flex items-start gap-3">
+            <input type="checkbox" name="marketing" id="marketing" class="mt-1" />
+            <label for="marketing" class="text-sm text-gray-600">
+              Keep me updated about National Nines events and news
+            </label>
+          </div>
+          
+          <div class="bg-gray-50 rounded-lg p-4">
+            <p class="text-sm text-gray-600">
+              <strong>Entry Fee:</strong> £150 per pair<br />
+              We'll contact you with payment details after receiving your entry.
+            </p>
+          </div>
+          
+          <button type="submit" class="w-full bg-brand-red text-white py-4 rounded-lg font-bold text-lg hover:bg-red-700 transition">
+            Submit Entry
+          </button>
+        </div>
+      </form>
+      
+      <!-- Confirmation (hidden by default) -->
+      <div id="entry-confirmation" class="hidden text-center py-12">
+        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h2 class="font-heading text-3xl font-bold text-brand-black mb-4">Entry Received!</h2>
+        <p class="text-gray-600 mb-2">Thank you for entering Kent Nines 2026.</p>
+        <p class="text-gray-600 mb-6">We'll be in touch with payment details and confirmation.</p>
+        <a href="/events" class="inline-block bg-brand-red text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition">
+          View All Events
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Venue -->
+  <section class="py-16 bg-brand-black text-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="font-heading text-3xl font-bold mb-6">The Venue</h2>
+          <h3 class="text-xl font-semibold mb-4">London Beach Golf Club</h3>
+          <p class="text-gray-300 mb-4">
+            Set in the beautiful Kent countryside near Tenterden, London Beach offers an exceptional 18-hole championship course with stunning views and challenging play.
+          </p>
+          <p class="text-gray-300 mb-6">
+            The resort also features a luxury spa, excellent dining, and comfortable accommodation - the perfect setting for your finals weekend.
+          </p>
+          <a href="https://www.londonbeach.com" target="_blank" class="inline-block border border-white px-6 py-3 rounded-lg hover:bg-white hover:text-brand-black transition">
+            Visit London Beach →
+          </a>
+        </div>
+        <div class="aspect-video bg-gray-800 rounded-xl overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800" alt="Golf course" class="w-full h-full object-cover opacity-80" />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .font-heading { font-family: 'Playfair Display', serif; }
+  .text-brand-red { color: #c41e3a; }
+  .text-brand-black { color: #1a1a1a; }
+  .bg-brand-red { background-color: #c41e3a; }
+  .bg-brand-black { background-color: #1a1a1a; }
+</style>
+
+<script>
+  // Configuration: Set to true when API is ready, false to use FormSubmit
+  const USE_API = false;
+  const API_BASE = 'https://api.nationalninesgolf.co.uk';
+  
+  const form = document.getElementById('entry-form') as HTMLFormElement;
+  const confirmation = document.getElementById('entry-confirmation');
+  
+  // Check if user just returned from a successful entry
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('entered') === 'true') {
+    form?.classList.add('hidden');
+    confirmation?.classList.remove('hidden');
+  }
+  
+  if (USE_API && form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      const originalText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Processing...';
+      
+      const formData = new FormData(form);
+      const entry = {
+        event: 'KENT_NINES_2026',
+        clubName: formData.get('club_name'),
+        player1Name: formData.get('player1_name'),
+        player1Email: formData.get('player1_email'),
+        player1Handicap: parseFloat(formData.get('player1_handicap') as string),
+        player2Name: formData.get('player2_name'),
+        player2Email: formData.get('player2_email'),
+        player2Handicap: parseFloat(formData.get('player2_handicap') as string),
+        contactPhone: formData.get('phone'),
+        marketingOptIn: formData.get('marketing') === 'on',
+      };
+      
+      try {
+        const response = await fetch(`${API_BASE}/api/entries`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(entry),
+        });
+        
+        if (!response.ok) {
+          const error = await response.json();
+          throw new Error(error.error || 'Failed to submit entry');
+        }
+        
+        const { checkoutUrl } = await response.json();
+        
+        // Redirect to Stripe Checkout
+        window.location.href = checkoutUrl;
+        
+      } catch (error: any) {
+        alert(error.message || 'Something went wrong. Please try again.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
+    });
+  }
+  // If not using API, add loading state for native form submission
+  if (!USE_API && form) {
+    form.addEventListener('submit', () => {
+      const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+      }
+    });
+  }
+  
+  // Fetch and display entry count
+  async function fetchEntryCount() {
+    try {
+      const response = await fetch(`${API_BASE}/api/stats`);
+      if (response.ok) {
+        const data = await response.json();
+        const count = data.kentNinesEntries || 0;
+        if (count > 0) {
+          const countEl = document.getElementById('entry-count');
+          const countNum = document.getElementById('count-number');
+          if (countEl && countNum) {
+            countNum.textContent = count.toString();
+            countEl.classList.remove('hidden');
+          }
+        }
+      }
+    } catch (e) {
+      // Silently fail - count is optional
+    }
+  }
+  
+  // Only fetch count if API is available
+  if (USE_API) {
+    fetchEntryCount();
+  }
+</script>

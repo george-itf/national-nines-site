@@ -1,0 +1,6 @@
+# National Nines Golf - robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://nationalninesgolf.co.uk/sitemap-index.xml

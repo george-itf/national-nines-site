@@ -1,0 +1,90 @@
+[
+  {
+    "id": "1",
+    "slug": "golf-balls-dozen",
+    "name": "Golf Balls (Dozen)",
+    "description": "Quality pre-owned golf balls in good condition. Mixed brands including Titleist, Callaway, and Srixon. Perfect for practice or casual rounds.",
+    "price": 15,
+    "category": "balls",
+    "inStock": true,
+    "shippingAvailable": true,
+    "collectionAvailable": true
+  },
+  {
+    "id": "2",
+    "slug": "hybrid-club",
+    "name": "Hybrid Club",
+    "description": "Versatile hybrid club suitable for various skill levels. Great alternative to long irons. Graphite shaft, regular flex.",
+    "price": 45,
+    "category": "clubs",
+    "inStock": true,
+    "shippingAvailable": true,
+    "collectionAvailable": true
+  },
+  {
+    "id": "3",
+    "slug": "push-trolley",
+    "name": "Push Trolley",
+    "description": "Three-wheel push trolley in good working condition. Folds flat for easy storage and transport. Includes scorecard holder.",
+    "price": 75,
+    "category": "trolleys",
+    "inStock": true,
+    "shippingAvailable": false,
+    "collectionAvailable": true
+  },
+  {
+    "id": "4",
+    "slug": "golf-glove-large",
+    "name": "Golf Glove (L)",
+    "description": "New leather golf glove, size Large. Left hand (for right-handed golfers). Premium feel and grip.",
+    "price": 8,
+    "category": "accessories",
+    "inStock": true,
+    "shippingAvailable": true,
+    "collectionAvailable": true
+  },
+  {
+    "id": "5",
+    "slug": "golf-polo-shirt",
+    "name": "Golf Polo Shirt",
+    "description": "Breathable polyester golf polo in excellent condition. Various colours available. Please specify size when ordering.",
+    "price": 20,
+    "category": "clothing",
+    "inStock": true,
+    "shippingAvailable": true,
+    "collectionAvailable": true
+  },
+  {
+    "id": "6",
+    "slug": "7-iron",
+    "name": "7 Iron",
+    "description": "Individual 7 iron from a quality brand set. Steel shaft, standard lie. Good condition with plenty of life left.",
+    "price": 25,
+    "category": "clubs",
+    "inStock": true,
+    "shippingAvailable": true,
+    "collectionAvailable": true
+  },
+  {
+    "id": "7",
+    "slug": "golf-bag",
+    "name": "Golf Bag",
+    "description": "Stand bag with dual straps for comfortable carrying. Multiple pockets for storage. Minor wear but fully functional.",
+    "price": 55,
+    "category": "accessories",
+    "inStock": true,
+    "shippingAvailable": false,
+    "collectionAvailable": true
+  },
+  {
+    "id": "8",
+    "slug": "putter",
+    "name": "Putter",
+    "description": "Blade-style putter with good feel. Standard length (34\"). Clean face with original grip in decent condition.",
+    "price": 35,
+    "category": "clubs",
+    "inStock": true,
+    "shippingAvailable": true,
+    "collectionAvailable": true
+  }
+]

@@ -1,0 +1,186 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import products from '../../data/products.json';
+
+export function getStaticPaths() {
+  return products.map(product => ({
+    params: { slug: product.slug },
+    props: { product }
+  }));
+}
+
+const { product } = Astro.props;
+const baseUrl = import.meta.env.BASE_URL || '/';
+
+const relatedProducts = products
+  .filter(p => p.category === product.category && p.id !== product.id)
+  .slice(0, 4);
+---
+
+<BaseLayout title={product.name} description={product.description}>
+  <section class="py-12">
+    <div class="max-w-6xl mx-auto px-4">
+      <!-- Breadcrumb -->
+      <nav class="mb-8 text-sm" aria-label="Breadcrumb">
+        <a href={`${baseUrl}shop`} class="text-gray-500 hover:text-brand-red">Shop</a>
+        <span class="mx-2 text-gray-400">/</span>
+        <span class="text-gray-700">{product.name}</span>
+      </nav>
+      
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- Product Image -->
+        <div class="aspect-square bg-gray-100 rounded-2xl flex items-center justify-center">
+          <div class="text-center text-gray-400 p-8">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            <p>Photo coming soon</p>
+          </div>
+        </div>
+        
+        <!-- Product Info -->
+        <div>
+          <h1 class="font-heading text-4xl font-bold text-brand-black mb-4">{product.name}</h1>
+          
+          <p class="text-3xl font-bold text-brand-red mb-6">£{product.price}</p>
+          
+          <div class="prose prose-gray mb-8">
+            <p class="text-gray-600 text-lg">{product.description}</p>
+          </div>
+          
+          <!-- Availability -->
+          <div class="mb-6">
+            <p class="flex items-center gap-2 mb-2">
+              {product.inStock ? (
+                <>
+                  <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                  <span class="text-green-700 font-medium">In Stock</span>
+                </>
+              ) : (
+                <>
+                  <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+                  <span class="text-red-700 font-medium">Out of Stock</span>
+                </>
+              )}
+            </p>
+          </div>
+          
+          <!-- Delivery Options -->
+          <div class="bg-gray-50 rounded-xl p-6 mb-8">
+            <h3 class="font-semibold mb-4">Delivery Options</h3>
+            <div class="space-y-3">
+              {product.collectionAvailable && (
+                <div class="flex items-center gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Collection available (Kent/Essex area) - Free</span>
+                </div>
+              )}
+              {product.shippingAvailable ? (
+                <div class="flex items-center gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>UK shipping available - calculated at checkout</span>
+                </div>
+              ) : (
+                <div class="flex items-center gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                  <span class="text-gray-500">Collection only (too large to ship)</span>
+                </div>
+              )}
+            </div>
+          </div>
+          
+          <!-- Add to Cart -->
+          {product.inStock && (
+            <button 
+              id="add-to-cart"
+              class="w-full bg-brand-red text-white py-4 rounded-lg font-bold text-lg hover:bg-red-700 transition"
+              data-id={product.id}
+              data-name={product.name}
+              data-price={product.price}
+            >
+              Add to Cart
+            </button>
+          )}
+          
+          <!-- Support Message -->
+          <p class="mt-6 text-sm text-gray-500 text-center">
+            All proceeds support National Nines Golf and grassroots 9-hole golf.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Related Products -->
+  {relatedProducts.length > 0 && (
+    <section class="py-12 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="font-heading text-2xl font-bold text-brand-black mb-8">You might also like</h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {relatedProducts.map(related => (
+            <a href={`${baseUrl}shop/${related.slug}`} class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition group">
+              <div class="aspect-square bg-gray-100 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div class="p-4">
+                <h3 class="font-semibold text-brand-black group-hover:text-brand-red transition">{related.name}</h3>
+                <p class="text-brand-red font-bold">£{related.price}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+</BaseLayout>
+
+<style>
+  .font-heading { font-family: 'Playfair Display', serif; }
+  .text-brand-red { color: #c41e3a; }
+  .text-brand-black { color: #1a1a1a; }
+  .bg-brand-red { background-color: #c41e3a; }
+</style>
+
+<script>
+  const addBtn = document.getElementById('add-to-cart');
+  
+  addBtn?.addEventListener('click', () => {
+    const item = {
+      id: addBtn.dataset.id,
+      name: addBtn.dataset.name,
+      price: parseFloat(addBtn.dataset.price || '0'),
+      quantity: 1
+    };
+    
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const existingIndex = cart.findIndex((i: any) => i.id === item.id);
+    
+    if (existingIndex > -1) {
+      cart[existingIndex].quantity++;
+    } else {
+      cart.push(item);
+    }
+    
+    localStorage.setItem('cart', JSON.stringify(cart));
+    
+    // Dispatch event for cart count sync
+    window.dispatchEvent(new CustomEvent('cartUpdated'));
+    
+    // Visual feedback
+    addBtn.textContent = 'Added to Cart!';
+    addBtn.classList.add('bg-green-600');
+    setTimeout(() => {
+      addBtn.textContent = 'Add to Cart';
+      addBtn.classList.remove('bg-green-600');
+    }, 2000);
+  });
+</script>

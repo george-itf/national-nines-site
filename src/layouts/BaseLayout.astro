@@ -1,0 +1,259 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  type?: string;
+}
+
+const { 
+  title, 
+  description = "National Nines Golf - 9-hole golf competitions across GB&I. Bringing competitive golf to 9-hole clubs.",
+  image = "/images/og-default.png",
+  type = "website"
+} = Astro.props;
+
+const siteUrl = import.meta.env.SITE || 'https://nationalninesgolf.co.uk';
+const baseUrl = import.meta.env.BASE_URL || '/';
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const ogImageUrl = new URL(image, siteUrl).toString();
+---
+
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content={description}>
+  <meta name="keywords" content="9-hole golf, golf competition, Kent golf, Essex golf, National Nines, grassroots golf, London Beach Golf Club">
+  <meta name="author" content="National Nines Golf Ltd">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#c41e3a">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content={`${title} | National Nines Golf`}>
+  <meta property="og:description" content={description}>
+  <meta property="og:type" content={type}>
+  <meta property="og:url" content={canonicalUrl}>
+  <meta property="og:image" content={ogImageUrl}>
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="National Nines Golf">
+  <meta property="og:locale" content="en_GB">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={`${title} | National Nines Golf`}>
+  <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content={ogImageUrl}>
+  
+  <title>{title} | National Nines Golf</title>
+  <link rel="canonical" href={canonicalUrl}>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`}>
+  <link rel="icon" type="image/x-icon" href={`${baseUrl}favicon.ico`}>
+  <link rel="apple-touch-icon" href={`${baseUrl}images/logo.jpg`}>
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SportsOrganization",
+    "name": "National Nines Golf",
+    "description": "Bringing competitive golf to 9-hole clubs across Great Britain & Ireland",
+    "url": siteUrl,
+    "logo": `${siteUrl}/images/logo.jpg`,
+    "telephone": "+447818400286",
+    "email": "info@nationalninesgolf.co.uk",
+    "sport": "Golf",
+    "areaServed": {
+      "@type": "Country",
+      "name": "United Kingdom"
+    }
+  })}></script>
+</head>
+<body class="min-h-screen flex flex-col">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <!-- Logo -->
+        <a href={`${baseUrl}`} class="flex items-center">
+          <img src={`${baseUrl}images/logo.jpg`} alt="National Nines Golf" class="h-14 md:h-16" />
+        </a>
+        
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href={`${baseUrl}`} class="nav-link">Home</a>
+          <a href={`${baseUrl}events`} class="nav-link">Events</a>
+          <a href={`${baseUrl}shop`} class="nav-link">Shop</a>
+          <a href={`${baseUrl}partners`} class="nav-link">Partners</a>
+          <a href={`${baseUrl}about`} class="nav-link">About</a>
+          <a href={`${baseUrl}contact`} class="nav-link">Contact</a>
+          <a href={`${baseUrl}cart`} class="nav-link flex items-center gap-1 relative">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+            <span id="cart-count" class="hidden bg-brand-red text-white text-xs rounded-full w-5 h-5 flex items-center justify-center absolute -top-2 -right-2">0</span>
+          </a>
+        </div>
+        
+        <!-- Mobile menu button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2" aria-label="Toggle menu" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Mobile Nav -->
+      <div id="mobile-menu" class="hidden md:hidden pb-4">
+        <div class="flex flex-col gap-4">
+          <a href={`${baseUrl}`} class="nav-link">Home</a>
+          <a href={`${baseUrl}events`} class="nav-link">Events</a>
+          <a href={`${baseUrl}shop`} class="nav-link">Shop</a>
+          <a href={`${baseUrl}partners`} class="nav-link">Partners</a>
+          <a href={`${baseUrl}about`} class="nav-link">About</a>
+          <a href={`${baseUrl}contact`} class="nav-link">Contact</a>
+          <a href={`${baseUrl}cart`} class="nav-link flex items-center gap-2">Cart <span id="cart-count-mobile" class="hidden bg-brand-red text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span></a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content" class="flex-1">
+    <slot />
+  </main>
+
+  <footer class="bg-brand-black text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Brand -->
+        <div class="col-span-1 md:col-span-2">
+          <img src={`${baseUrl}images/logo.jpg`} alt="National Nines Golf" class="h-16 mb-2" />
+          <p class="mt-4 text-gray-400 max-w-md">
+            Bringing competitive golf to 9-hole clubs across Great Britain & Ireland. 
+            All proceeds support grassroots golf and charity.
+          </p>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+          <h4 class="font-heading text-lg mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href={`${baseUrl}events`} class="hover:text-white transition">Events</a></li>
+            <li><a href={`${baseUrl}shop`} class="hover:text-white transition">Shop</a></li>
+            <li><a href={`${baseUrl}partners`} class="hover:text-white transition">Partners</a></li>
+            <li><a href={`${baseUrl}about`} class="hover:text-white transition">About Us</a></li>
+            <li><a href={`${baseUrl}contact`} class="hover:text-white transition">Contact</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact -->
+        <div>
+          <h4 class="font-heading text-lg mb-4">Contact</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li>
+              <a href="tel:07818400286" class="hover:text-white transition">07818 400286</a>
+            </li>
+            <li>
+              <a href="mailto:info@nationalninesgolf.co.uk" class="hover:text-white transition">info@nationalninesgolf.co.uk</a>
+            </li>
+          </ul>
+          <div class="mt-4 flex gap-4">
+            <a href="https://facebook.com/nationalninesgolf" target="_blank" rel="noopener" class="text-gray-400 hover:text-white transition" aria-label="Facebook">
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://instagram.com/nationalninesgolf" target="_blank" rel="noopener" class="text-gray-400 hover:text-white transition" aria-label="Instagram">
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-gray-400 text-sm">
+          &copy; {new Date().getFullYear()} National Nines Golf. All rights reserved.
+        </p>
+        <div class="flex gap-6 text-gray-400 text-sm">
+          <a href={`${baseUrl}privacy`} class="hover:text-white transition">Privacy Policy</a>
+          <a href={`${baseUrl}terms`} class="hover:text-white transition">Terms & Conditions</a>
+        </div>
+        <p class="text-gray-400 text-sm">
+          National Nines Golf Ltd
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    .nav-link {
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #333;
+      transition: color 0.3s;
+    }
+    .nav-link:hover {
+      color: #c41e3a;
+    }
+    .font-heading {
+      font-family: 'Playfair Display', serif;
+    }
+    .text-brand-red {
+      color: #c41e3a;
+    }
+    .text-brand-black {
+      color: #1a1a1a;
+    }
+    .bg-brand-black {
+      background-color: #1a1a1a;
+    }
+    .bg-brand-red {
+      background-color: #c41e3a;
+    }
+  </style>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuBtn?.addEventListener('click', () => {
+      const isExpanded = mobileMenu?.classList.toggle('hidden') === false;
+      mobileMenuBtn.setAttribute('aria-expanded', String(isExpanded));
+    });
+    
+    // Cart count sync
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const total = cart.reduce((sum: number, item: any) => sum + (item.quantity || 1), 0);
+      
+      const cartCount = document.getElementById('cart-count');
+      const cartCountMobile = document.getElementById('cart-count-mobile');
+      
+      [cartCount, cartCountMobile].forEach(el => {
+        if (el) {
+          el.textContent = total.toString();
+          el.classList.toggle('hidden', total === 0);
+        }
+      });
+    }
+    
+    // Run on page load
+    updateCartCount();
+    
+    // Listen for storage changes (cross-tab sync)
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'cart') updateCartCount();
+    });
+    
+    // Custom event for same-tab updates
+    window.addEventListener('cartUpdated', updateCartCount);
+  </script>
+</body>
+</html>

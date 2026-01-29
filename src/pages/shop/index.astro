@@ -1,0 +1,215 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import productsData from '../../data/products.json';
+
+const products = productsData;
+const baseUrl = import.meta.env.BASE_URL || '/';
+
+const categories = [
+  { id: 'all', name: 'All Items' },
+  { id: 'clubs', name: 'Clubs' },
+  { id: 'balls', name: 'Golf Balls' },
+  { id: 'trolleys', name: 'Trolleys' },
+  { id: 'accessories', name: 'Accessories' },
+  { id: 'clothing', name: 'Clothing' },
+];
+---
+
+<BaseLayout title="Shop" description="Quality donated golf equipment at great prices. All proceeds support National Nines Golf and grassroots 9-hole golf.">
+  <section class="py-12 bg-gray-50 min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h1 class="font-heading text-5xl font-bold text-brand-black mb-4">Shop</h1>
+        <div class="w-20 h-1 bg-brand-red mx-auto mb-6"></div>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          Quality donated golf equipment at great prices. All proceeds support National Nines Golf.
+        </p>
+      </div>
+      
+      <!-- Category Filter -->
+      <div class="flex flex-wrap justify-center gap-3 mb-10">
+        {categories.map(cat => (
+          <button 
+            class="category-btn px-4 py-2 rounded-full border-2 border-gray-300 text-gray-600 hover:border-brand-red hover:text-brand-red transition"
+            data-category={cat.id}
+          >
+            {cat.name}
+          </button>
+        ))}
+      </div>
+      
+      <!-- Products Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="products-grid">
+        {products.map(product => (
+          <div class="product-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition" data-category={product.category}>
+            <a href={`${baseUrl}shop/${product.slug}`} class="block">
+              <div class="aspect-square bg-gray-200 flex items-center justify-center">
+                <div class="text-center text-gray-400 p-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <span class="text-sm">Photo coming soon</span>
+                </div>
+              </div>
+            </a>
+            <div class="p-4">
+              <a href={`${baseUrl}shop/${product.slug}`}>
+                <h3 class="font-semibold text-brand-black hover:text-brand-red transition">{product.name}</h3>
+              </a>
+              <p class="text-brand-red font-bold text-lg">£{product.price}</p>
+              <button class="add-to-cart-btn mt-3 w-full bg-brand-red text-white py-2 rounded-lg text-sm font-semibold hover:bg-red-700 transition" data-id={product.id} data-name={product.name} data-price={product.price}>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <!-- Empty State -->
+      <div id="empty-state" class="hidden text-center py-12">
+        <p class="text-gray-500 text-lg">No products in this category yet.</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Delivery Info -->
+  <section class="py-12 bg-white border-t">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="grid md:grid-cols-3 gap-8 text-center">
+        <div>
+          <div class="w-12 h-12 bg-brand-red/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-red" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+            </svg>
+          </div>
+          <h3 class="font-semibold mb-2">Collection Available</h3>
+          <p class="text-gray-600 text-sm">Pick up from Kent/Essex area</p>
+        </div>
+        <div>
+          <div class="w-12 h-12 bg-brand-red/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-red" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="font-semibold mb-2">UK Shipping</h3>
+          <p class="text-gray-600 text-sm">Calculated at checkout</p>
+        </div>
+        <div>
+          <div class="w-12 h-12 bg-brand-red/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-red" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+          </div>
+          <h3 class="font-semibold mb-2">Support Golf</h3>
+          <p class="text-gray-600 text-sm">All proceeds fund 9-hole golf</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .font-heading {
+    font-family: 'Playfair Display', serif;
+  }
+  .text-brand-red {
+    color: #c41e3a;
+  }
+  .text-brand-black {
+    color: #1a1a1a;
+  }
+  .bg-brand-red {
+    background-color: #c41e3a;
+  }
+  .category-btn.active {
+    border-color: #c41e3a;
+    background-color: #c41e3a;
+    color: white;
+  }
+</style>
+
+<script>
+  // Category filtering
+  const categoryBtns = document.querySelectorAll('.category-btn');
+  const productCards = document.querySelectorAll('.product-card');
+  const emptyState = document.getElementById('empty-state');
+  
+  categoryBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const category = btn.dataset.category;
+      
+      // Update active button
+      categoryBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      
+      // Filter products
+      let visibleCount = 0;
+      productCards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'block';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      
+      // Show/hide empty state
+      if (emptyState) {
+        emptyState.classList.toggle('hidden', visibleCount > 0);
+      }
+    });
+  });
+  
+  // Set 'All' as active by default
+  categoryBtns[0]?.classList.add('active');
+  
+  // Add to cart functionality
+  const addToCartBtns = document.querySelectorAll('.add-to-cart-btn');
+  
+  addToCartBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = {
+        id: btn.dataset.id,
+        name: btn.dataset.name,
+        price: parseFloat(btn.dataset.price),
+        quantity: 1
+      };
+      
+      // Get existing cart
+      let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      
+      // Check if item exists
+      const existingIndex = cart.findIndex(i => i.id === item.id);
+      if (existingIndex > -1) {
+        cart[existingIndex].quantity++;
+      } else {
+        cart.push(item);
+      }
+      
+      // Save cart
+      localStorage.setItem('cart', JSON.stringify(cart));
+      
+      // Dispatch event for cart count sync
+      window.dispatchEvent(new CustomEvent('cartUpdated'));
+      
+      // Visual feedback
+      btn.textContent = 'Added!';
+      btn.classList.add('bg-green-600');
+      setTimeout(() => {
+        btn.textContent = 'Add to Cart';
+        btn.classList.remove('bg-green-600');
+      }, 1500);
+    });
+  });
+  
+  // Initialize cart count on load
+  document.addEventListener('DOMContentLoaded', () => {
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const cartCount = document.getElementById('cart-count');
+    if (cartCount && cart.length > 0) {
+      const total = cart.reduce((sum, i) => sum + i.quantity, 0);
+      cartCount.textContent = total.toString();
+      cartCount.classList.remove('hidden');
+    }
+  });
+</script>

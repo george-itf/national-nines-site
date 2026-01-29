@@ -1,0 +1,257 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import products from '../data/products.json';
+const baseUrl = import.meta.env.BASE_URL || '/';
+const featuredProducts = products.slice(0, 4);
+---
+
+<BaseLayout title="Home" description="National Nines Golf - Bringing competitive 9-hole golf to clubs across Great Britain & Ireland. Enter the Kent Nines or Essex Nines competitions today.">
+  <!-- Sponsors Bar -->
+  <section class="bg-brand-red text-white py-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 text-center">
+        <div class="flex items-center gap-3">
+          <span class="text-sm font-semibold uppercase tracking-wide">Raising Money For:</span>
+          <a href={`${baseUrl}partners`} class="hover:opacity-80 transition">
+            <img src={`${baseUrl}images/sponsors/pilgrims-real.png`} alt="Pilgrims Hospices" class="h-10 object-contain bg-white rounded px-2 py-1" />
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-sm font-semibold uppercase tracking-wide">Finals Hosted By:</span>
+          <a href={`${baseUrl}partners`} class="hover:opacity-80 transition">
+            <img src={`${baseUrl}images/sponsors/london-beach-real.png`} alt="London Beach Hotel" class="h-10 object-contain bg-white rounded px-2 py-1" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hero Section - Fairway view -->
+  <section class="relative min-h-[90vh] flex items-center justify-center text-white overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=1920');">
+      <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/70"></div>
+    </div>
+    
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <!-- Logo -->
+      <div class="mb-6">
+        <img src={`${baseUrl}images/logo.jpg`} alt="National Nines" class="h-24 md:h-32 mx-auto drop-shadow-2xl rounded-lg" />
+      </div>
+      <h1 class="font-heading text-6xl md:text-8xl font-black mb-6 tracking-tight drop-shadow-lg">
+        NATIONAL N<span class="text-brand-red">|</span>NES
+      </h1>
+      <p class="text-2xl md:text-3xl font-bold mb-4 text-brand-red uppercase tracking-widest">9 Holes. No Excuses.</p>
+      <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto font-light">
+        Proper competition golf for clubs that prove less is more.<br/>
+        <span class="text-brand-red font-semibold">Plus raising money for charity along the way.</span>
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href={`${baseUrl}events`} class="btn-primary rounded-lg text-lg px-8 py-4 font-bold uppercase tracking-wide shadow-xl hover:scale-105 transition-transform">Enter Now →</a>
+        <a href={`${baseUrl}about`} class="btn-secondary rounded-lg bg-white/10 backdrop-blur border-2 border-white text-white hover:bg-white hover:text-brand-black text-lg px-8 py-4 font-bold uppercase tracking-wide">What's This About?</a>
+      </div>
+    </div>
+    
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <svg class="w-8 h-8 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Events Preview -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-heading text-4xl font-bold text-brand-black mb-4">Events for 2026</h2>
+        <div class="w-20 h-1 bg-brand-red mx-auto"></div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <!-- Kent Nines -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition group">
+          <div class="bg-gradient-to-br from-brand-black to-gray-800 text-white p-8 text-center">
+            <h3 class="font-heading text-2xl font-bold">
+              KENT N<span class="text-brand-red">|</span>NES
+            </h3>
+            <p class="text-sm opacity-80 mt-2">Pairs Betterball Stableford</p>
+          </div>
+          <div class="p-6">
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start gap-2">
+                <span class="text-brand-red">✓</span>
+                <span>Each pair plays a home qualifier</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-red">✓</span>
+                <span>Winning pair advances to Finals</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-red">✓</span>
+                <span>Finals at London Beach Golf Club</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-red">✓</span>
+                <span>Overnight stay with dinner & breakfast</span>
+              </li>
+            </ul>
+            <div class="text-center">
+              <p class="text-sm text-gray-500 mb-2">Final: October 3-4, 2026</p>
+              <a href={`${baseUrl}events/kent-nines`} class="inline-block btn-primary rounded-lg text-sm">Learn More</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Essex Nines -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition group">
+          <div class="bg-gradient-to-br from-brand-black to-gray-800 text-white p-8 text-center">
+            <h3 class="font-heading text-2xl font-bold">
+              ESSEX N<span class="text-brand-red">|</span>NES
+            </h3>
+            <p class="text-sm opacity-80 mt-2">Pairs Matchplay Knockout</p>
+          </div>
+          <div class="p-6">
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start gap-2">
+                <span class="text-brand-red">✓</span>
+                <span>Open to all 9-hole clubs in Essex</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-red">✓</span>
+                <span>£50 per pair entry fee</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-red">✓</span>
+                <span>Knockout matchplay format</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-red">✓</span>
+                <span>Last 4 pairs play at London Beach</span>
+              </li>
+            </ul>
+            <div class="text-center">
+              <p class="text-sm text-gray-500 mb-2">Finals: October 3-4, 2026</p>
+              <a href={`${baseUrl}events/essex-nines`} class="inline-block btn-primary rounded-lg text-sm">Enter Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop Preview -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-heading text-4xl font-bold text-brand-black mb-4">Shop</h2>
+        <div class="w-20 h-1 bg-brand-red mx-auto mb-4"></div>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          Quality donated golf equipment at great prices. All proceeds support National Nines Golf and grassroots 9-hole golf.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {featuredProducts.map(product => (
+          <a href={`${baseUrl}shop/${product.slug}`} class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition group">
+            <div class="aspect-square bg-gray-200 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold group-hover:text-brand-red transition">{product.name}</h4>
+              <p class="text-brand-red font-bold">£{product.price}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+      
+      <div class="text-center mt-10">
+        <a href={`${baseUrl}shop`} class="inline-block btn-primary rounded-lg">Browse All Products</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Preview -->
+  <section class="py-20 bg-brand-black text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="font-heading text-4xl font-bold mb-6">
+            Championing 9-Hole Golf
+          </h2>
+          <p class="text-gray-300 mb-4">
+            National Nines Golf was created to give members of 9-hole golf clubs the opportunity 
+            to compete in properly organised tournament golf, just like the bigger clubs enjoy.
+          </p>
+          <p class="text-gray-300 mb-6">
+            We believe great golf doesn't need 18 holes. Our competitions bring together 
+            golfers from 9-hole clubs across the country for exciting, competitive events 
+            with fantastic prizes and memorable experiences.
+          </p>
+          <a href={`${baseUrl}about`} class="inline-block btn-primary rounded-lg">Learn More About Us</a>
+        </div>
+        <div class="relative">
+          <div class="aspect-video bg-gray-800 rounded-xl overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=800" 
+              alt="Golf course" 
+              class="w-full h-full object-cover opacity-80"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-brand-red text-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">Ready to Compete?</h2>
+      <p class="text-lg mb-8 opacity-90">
+        Enter the Kent Nines or Essex Nines today and experience competitive 9-hole golf at its best.
+      </p>
+      <a href={`${baseUrl}events`} class="inline-block bg-white text-brand-red px-8 py-3 rounded-lg font-bold uppercase tracking-wide hover:bg-gray-100 transition">
+        View All Events
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .btn-primary {
+    background-color: #c41e3a;
+    color: white;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: background-color 0.3s;
+  }
+  .btn-primary:hover {
+    background-color: #a01830;
+  }
+  .btn-secondary {
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 2px solid currentColor;
+    transition: all 0.3s;
+  }
+  .font-heading {
+    font-family: 'Playfair Display', serif;
+  }
+  .text-brand-red {
+    color: #c41e3a;
+  }
+  .text-brand-black {
+    color: #1a1a1a;
+  }
+  .bg-brand-black {
+    background-color: #1a1a1a;
+  }
+  .bg-brand-red {
+    background-color: #c41e3a;
+  }
+</style>
