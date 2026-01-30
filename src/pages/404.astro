@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const baseUrl = import.meta.env.BASE_URL || '/';
+---
+
+<BaseLayout title="Page Not Found" description="The page you're looking for doesn't exist.">
+  <section class="py-24 md:py-32 bg-gray-50">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <div class="mb-8">
+        <span class="text-8xl md:text-9xl font-bold text-brand-red/20 font-heading select-none">404</span>
+      </div>
+      <h1 class="font-heading text-4xl md:text-5xl font-bold text-brand-black mb-4">
+        Out of Bounds!
+      </h1>
+      <p class="text-xl text-gray-600 mb-2">
+        Looks like this shot went out of bounds.
+      </p>
+      <p class="text-gray-500 mb-10">
+        The page you're looking for doesn't exist or has been moved. Take a drop back on the fairway.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href={`${baseUrl}`} class="btn-primary rounded-lg text-lg px-8 py-4 font-bold uppercase tracking-wide">
+          Back to the Clubhouse
+        </a>
+        <a href={`${baseUrl}events`} class="btn-secondary rounded-lg text-lg px-8 py-4 font-bold uppercase tracking-wide">
+          View Events
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

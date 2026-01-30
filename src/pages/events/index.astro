@@ -19,7 +19,7 @@ const baseUrl = import.meta.env.BASE_URL || '/';
         <!-- Kent Nines Card -->
         <a href={`${baseUrl}events/kent-nines`} class="group">
           <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform group-hover:-translate-y-1">
-            <div class="relative h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800');">
+            <div class="relative h-48 bg-cover bg-center" style="background-image: url('${baseUrl}images/events-kent-card.jpg');">
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
               <div class="absolute bottom-4 left-6">
                 <h2 class="font-heading text-3xl font-bold text-white">
@@ -51,7 +51,7 @@ const baseUrl = import.meta.env.BASE_URL || '/';
         <!-- Essex Nines Card -->
         <a href={`${baseUrl}events/essex-nines`} class="group">
           <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform group-hover:-translate-y-1">
-            <div class="relative h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=800');">
+            <div class="relative h-48 bg-cover bg-center" style="background-image: url('${baseUrl}images/events-essex-card.jpg');">
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
               <div class="absolute bottom-4 left-6">
                 <h2 class="font-heading text-3xl font-bold text-white">
@@ -98,20 +98,3 @@ const baseUrl = import.meta.env.BASE_URL || '/';
   </section>
 </BaseLayout>
 
-<style>
-  .font-heading {
-    font-family: 'Playfair Display', serif;
-  }
-  .text-brand-red {
-    color: #c41e3a;
-  }
-  .text-brand-black {
-    color: #1a1a1a;
-  }
-  .bg-brand-black {
-    background-color: #1a1a1a;
-  }
-  .bg-brand-red {
-    background-color: #c41e3a;
-  }
-</style>

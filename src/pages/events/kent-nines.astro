@@ -48,7 +48,7 @@ const eventSchema = {
   )}
   <!-- Hero -->
   <section class="relative py-24 text-white overflow-hidden">
-    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1592919505780-303950717480?w=1920');">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('${baseUrl}images/kent-hero.jpg');">
       <div class="absolute inset-0 bg-gradient-to-r from-brand-black/95 via-brand-black/80 to-brand-black/60"></div>
     </div>
     <div class="relative z-10 max-w-4xl mx-auto px-4">
@@ -294,20 +294,12 @@ const eventSchema = {
           </a>
         </div>
         <div class="aspect-video bg-gray-800 rounded-xl overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800" alt="Golf course" class="w-full h-full object-cover opacity-80" />
+          <img src=`${baseUrl}images/venue-golf.jpg` alt="Golf course" class="w-full h-full object-cover opacity-80" />
         </div>
       </div>
     </div>
   </section>
 </BaseLayout>
-
-<style>
-  .font-heading { font-family: 'Playfair Display', serif; }
-  .text-brand-red { color: #c41e3a; }
-  .text-brand-black { color: #1a1a1a; }
-  .bg-brand-red { background-color: #c41e3a; }
-  .bg-brand-black { background-color: #1a1a1a; }
-</style>
 
 <script>
   // Configuration: Set to true when API is ready, false to use FormSubmit
