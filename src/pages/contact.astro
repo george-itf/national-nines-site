@@ -30,6 +30,7 @@ const siteUrl = import.meta.env.SITE || 'https://nationalninesgolf.co.uk';
           <form action="https://formsubmit.co/info@nationalninesgolf.co.uk" method="POST" class="space-y-6">
             <input type="hidden" name="_subject" value="New contact from National Nines website">
             <input type="hidden" name="_captcha" value="false">
+            <input type="text" name="_honey" style="display:none">
             <input type="hidden" name="_next" value={`${siteUrl}${baseUrl}contact/?success=true`}>
             <div>
               <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Your Name</label>
